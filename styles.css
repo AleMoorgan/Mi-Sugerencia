@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+    background-image: url('https://i.pinimg.com/736x/62/4c/6a/624c6aac429c51f220dab7a07998c1cf.jpg');  /* Ruta a tu imagen */
+    background-size: cover;                      /* Cubre toda la pantalla */
+    background-position: center;                 /* Centra la imagen */
+    background-repeat: no-repeat;                /* No se repite */
+    height: 100vh;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* blanco con transparencia */
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    width: 95%;          /* ocupará el 95% del ancho de la pantalla */
+    max-width: 600px;    /* pero no crecerá más de 600px */
+    margin: 50px auto;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.contenido {
+    color: white;
+    text-align: center;
+    padding-top: 20%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semitransparente */
+    margin: 0 auto;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background: #fff;
+    color: rgb(255, 116, 167);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"]:nth-child(3) {
+    background: #000000;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #f4f4f4;
+}

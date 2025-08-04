@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registro</title>
+  <style>
+    /* Estilo general del cuerpo */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      font-size: 20px; /* tamaño de letra más grande */
+      color: black;
+      background-image: url('https://i.pinimg.com/736x/62/4c/6a/624c6aac429c51f220dab7a07998c1cf.jpg'); /* reemplaza con tu fondo real */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh; /* asegura que el fondo cubra toda la pantalla */
+    }
+
+    /* Contenedor del formulario */
+    .registro-container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* Título principal */
+    .registro-container h2 {
+      font-size: 38px; /* más grande */
+      margin-bottom: 30px;
+      color: black; /* título en negro */
+    }
+
+    /* Campos del formulario */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 90%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #fce4ec;
+      font-size: 20px;
+      color: black;
+    }
+
+    /* Botón de registro */
+    input[type="submit"] {
+      background-color: #e91e63;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #d81b60;
+    }
+
+    /* Enlace para volver a login */
+    .volver-login {
+      margin-top: 20px;
+      font-size: 20px;
+      color: black;
+    }
+
+    .volver-login a {
+      color: hotpink;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .volver-login a:hover {
+      text-decoration: underline;
+    }
+
+    /* Adaptación a pantallas pequeñas */
+    @media (max-width: 600px) {
+      .registro-container {
+        padding: 25px;
+      }
+
+      .registro-container h2 {
+        font-size: 30px;
+      }
+
+      input[type="submit"] {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="registro-container">
+    <h2>¡Crea una cuenta!</h2>
+    <form id="registroForm" action="prueba.php" method="post">
+      <input type="text" id="username" name="username" placeholder="Nombre de usuario" required /><br />
+      <input type="password" id="password" name="password" placeholder="Contraseña" required /><br />
+      <input type="submit" value="Registrarse" />
+    </form>
+    <div class="volver-login">
+      ¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a>
+    </div>
+  </div>
+
+<script>
+  // Simulación de usuarios registrados existentes
+  const usuariosRegistrados = ['juan123', 'maria2023', 'pedro'];
+
+  const form = document.getElementById('registroForm');
+  form.addEventListener('submit', function(event) {
+    const usernameInput = document.getElementById('username');
+    const username = usernameInput.value.trim().toLowerCase();
+    const password = document.getElementById('password').value;
+
+    console.log('Usuario a validar:', username);  // Para debug
+
+    // Validación contraseña
+    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]|:;"'<>,.?/~`]).{8,}$/;
+
+    if (!regex.test(password)) {
+      event.preventDefault();
+      alert('¡La contraseña debe tener mínimo 8 caracteres, al menos una mayúscula, un número y un carácter especial!');
+      return;
+    }
+
+    // Validar si usuario ya existe (case insensitive)
+    const existeUsuario = usuariosRegistrados.some(u => u.toLowerCase() === username);
+    console.log('Existe usuario?', existeUsuario);  // Para debug
+
+    if (existeUsuario) {
+      event.preventDefault();
+      alert('¡Nombre de usuario en uso! Elige otro, por favor.');
+      usernameInput.focus();
+      return;
+    }
+  });
+</script>
+
+</body>
+</html>
