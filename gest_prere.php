@@ -9,14 +9,17 @@ if (isset($_GET['eliminar'])) {
     $ruta_pregunta = $carpeta . $archivo;
     $ruta_respuestas = $carpeta . str_replace('.txt', '_respuestas.txt', $archivo);
 
-    if (file_exists($ruta_pregunta)) {
-        unlink($ruta_pregunta);
-    }
+// Verifica si el archivo de la pregunta existe
+if (file_exists($ruta_pregunta)) {
+    // Si existe, lo elimina del sistema de archivos
+    unlink($ruta_pregunta);
+}
 
-    if (file_exists($ruta_respuestas)) {
-        unlink($ruta_respuestas);
-    }
-
+// Verifica si el archivo de respuestas asociado a la pregunta existe
+if (file_exists($ruta_respuestas)) {
+    // Si existe, también lo elimina
+    unlink($ruta_respuestas);
+}
     $mensaje = "Pregunta y sus respuestas eliminadas correctamente.";
 }
 
