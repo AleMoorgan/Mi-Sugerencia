@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     body {
         background-image: url('https://i.pinimg.com/736x/ab/89/34/ab893427c3487dff27e1937f107231b2.jpg'); /* Imagen */
         background-size: cover;             /* Para que cubra toda la pantalla */
-        background-repeat: no-repeat;
+        background-repeat: repeat;
         font-family: sans-serif;
     }
 
