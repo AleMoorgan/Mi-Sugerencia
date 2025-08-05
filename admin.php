@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-9">
-    <title>Admin - Hello Math Books</title>
+    <title>Admin - Hello Math Boocs</title>
 
 <style>
     body {
