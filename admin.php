@@ -3,13 +3,22 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['admin_pass'] ?? '';
+
+
+      if (hash('md5', $password) == '5f4dcc3b5aa765d61d8327deb882cf99') { // 
+        $_SESSION['admin'] = true;
+        echo "<script>window.location.href='dashboard,sphp';</script>"; 
+    } else {
+        $_SESSION['intentos'] = ++$intentos;
+        $error = "Contraseña incorrecta";
+    }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-9">
     <title>Admin - Hello Math Books</title>
 
 <style>
@@ -47,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h2 style="text-align:center; color:white; font-size: 40px">Modo Administrador</h2>
 
-    <?php if (!empty($error)): ?>
-        <p style="color:red; text-align:center;"><?= $error ?></p>
+    <?php if (empty(!$error)): ?>
+        <a style="color:red; text-align:center;"><?= $error ?><a>
     <?php endif; ?>
 
     <form method="POST" style="text-align:center;">
